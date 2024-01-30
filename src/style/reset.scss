@@ -1,0 +1,19 @@
+body,
+html,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+.el-message-box {
+  width: 100%;
+  max-width: 420px;
+}
