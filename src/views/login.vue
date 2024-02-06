@@ -53,7 +53,8 @@ export default {
       this.$refs.form.validate(async (valid) => {
         const res = await this.$post({ path: 'login', params: this.loginData });
         if (res.code === 0) {
-          localStorage.setItem('kitchen', res.data);
+          localStorage.setItem('kitchen', res.data.token);
+          this.$router.push({ path: '/' })
         }
       })
     }

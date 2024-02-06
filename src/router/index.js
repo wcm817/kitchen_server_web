@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
 
   if (!hasLoginCookie() && to.name !== 'login') {
     next({
-      path: '/path'
+      path: '/login'
     })
   } else {
     next();
