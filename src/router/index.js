@@ -10,13 +10,19 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
-    // redirect: (a, b, c) => {
-    //   console.log('redirect:::', a, b, c);
-    //   return
-    // },
-    // children: [
-
-    // ]
+    redirect: '/home/comment',
+    children: [
+      {
+        path: '/home/comment',
+        name: 'comment',
+        component: () => import('@/views/home/comment.vue')
+      },
+      {
+        path: '/home/carouselData',
+        name: 'carouselData',
+        component: () => import('@/views/home/carouselData.vue')
+      }
+    ]
   },
   {
     path: '/login',

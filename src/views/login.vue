@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
   name: 'Login',
   components: {},
@@ -51,6 +52,7 @@ export default {
   created () { },
   mounted () { },
   methods: {
+    ...mapMutations(['setUsername']),
     hanldeLogin () {
       this.$refs.form.validate(async (valid) => {
         const res = await this.$post({ path: 'login', params: this.loginData });
