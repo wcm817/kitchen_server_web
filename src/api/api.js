@@ -1,3 +1,5 @@
 export const api = {
-  login: '/login'
+  login: '/login',
+  logout: '/logout',
+  test: '/test'
 }

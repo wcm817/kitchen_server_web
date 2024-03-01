@@ -1,1 +1,7 @@
 $main-color: #3889cc;
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

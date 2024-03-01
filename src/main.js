@@ -12,6 +12,7 @@ Vue.prototype.$get = get;
 Vue.prototype.$post = post;
 Vue.prototype.$getFile = getFile;
 
+
 new Vue({
   router,
   store,

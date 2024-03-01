@@ -20,7 +20,9 @@
           >
           </el-input>
         </el-form-item>
-        <button class="login-btn" @click="hanldeLogin">登录</button>
+        <button class="login-btn" @click="hanldeLogin" type="button">
+          登录
+        </button>
       </el-form>
     </div>
   </div>
@@ -53,8 +55,8 @@ export default {
       this.$refs.form.validate(async (valid) => {
         const res = await this.$post({ path: 'login', params: this.loginData });
         if (res.code === 0) {
-          localStorage.setItem('kitchen', res.data.token);
-          this.$router.push({ path: '/' })
+          this.setUsername(res.data.name);
+          this.$router.push({ path: '/' });
         }
       })
     }

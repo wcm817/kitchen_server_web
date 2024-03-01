@@ -9,7 +9,14 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    // redirect: (a, b, c) => {
+    //   console.log('redirect:::', a, b, c);
+    //   return
+    // },
+    // children: [
+
+    // ]
   },
   {
     path: '/login',
@@ -30,14 +37,23 @@ router.beforeEach((to, from, next) => {
   if (to.name === 'login') {
     next();
   }
-
   if (!hasLoginCookie() && to.name !== 'login') {
-    next({
+    return next({
       path: '/login'
     })
   } else {
     next();
   }
-})
+});
+
+
+// 解决 Redirected when going from “/login“ to “/“ via a navigation guard错误提示
+//获取原型对象上的push函数
+const originalPush = VueRouter.prototype.push
+//修改原型对象中的push方法
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 
 export default router

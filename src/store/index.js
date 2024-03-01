@@ -11,6 +11,9 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
+    setUsername (state, name) {
+      state.username = name;
+    }
   },
   actions: {
   },
